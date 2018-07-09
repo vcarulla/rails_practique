@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-# README
+#rails_practique
+## README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
@@ -21,8 +21,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
-=======
-# rails_practique
->>>>>>> e84a6659796b40d24312875a72c9c857351894d0
