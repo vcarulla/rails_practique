@@ -1,0 +1,31 @@
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <h3>
+        <%= pluralize(@user.errors.count, 'error') %> stopped this form from saving.
+      </h3>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.text_field :password, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Finish", class: "btn btn-block btn-success" %>
+  </div>
+<% end %>
