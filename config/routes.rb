@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :auth do
     resources :users, only: [:create]
     resource  :session, only: [:create]
-    resource  :confirmation
+    resource  :confirmation, only: [:new]
   end
 
   #TODO User Friendly Url's
