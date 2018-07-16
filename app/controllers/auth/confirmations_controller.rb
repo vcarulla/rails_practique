@@ -3,11 +3,9 @@ class Auth::ConfirmationsController < Auth::BaseController
       confirmed_and_or_redirect(params[:token]) if params[:token].present?
   end
 
-
-
 private
   def confirmed_and_or_redirect(token)
-    user =  User.where(confirmation_token: params[:token]).first
+    user = User.where(confirmation_token: params[:token]).first
     if session[:user_id].present?
       redirect_to root_path, info: 'You are already login!'
     elsif user and user.confirmed?
