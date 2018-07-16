@@ -4,16 +4,20 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to root_path
-    else
-      #TODO binding.pry va a poner un "breackpoint" en esa linea de ejecucion y mostrarla en consola
-      # binding.pry
-      # uses @user.errors | @user.errors.any? | @user.errors.messages | @user.errors.full_messages | @users.errors.count
+    if User.where(email: params[:email]).first
       render :new
+      else
+        @user = User.new(user_params)
+        if @user.save
+          redirect_to root_path
+        else
+          #TODO binding.pry va a poner un "breackpoint" en esa linea de ejecucion y mostrarla en consola
+          # binding.pry
+          # uses @user.errors | @user.errors.any? | @user.errors.messages | @user.errors.full_messages | @users.errors.count
+          render :new
+        end
+      end
     end
-  end
 
   private
   def user_params
