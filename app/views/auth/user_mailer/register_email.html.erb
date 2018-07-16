@@ -3,5 +3,5 @@
 
 <%# TODO: en vez de utilizar _path se usa _url, ya que se accede desde fuera y necesitamos la URI completa
 por eso hay que configurar el enviroment (developer.rb production.rb etc) %>
-<p>Copy this token: <%= @user.confirmation_token %></p> 
-<%= link_to "Click to Confirm", new_confirmation_url %>
+<p>Copy this token: <%= @user.confirmation_token %></p>
+<%= link_to "Click to Confirm", new_auth_confirmation_url %>

@@ -1,6 +1,4 @@
-require 'date'
-
-class ConfirmationsController < ApplicationController
+class Auth::ConfirmationsController < Auth::BaseController
   def new
 
   end
@@ -12,7 +10,7 @@ class ConfirmationsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      # 
+      #
     end
   end
 

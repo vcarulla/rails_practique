@@ -3,7 +3,7 @@
     <h2>Sign In</h2>
     <!-- TODO  Se usa form_tag en ves de form_for @xxxx porque no hay modelo al que conectar
     entonces crea un form "vainilla", se podria crear puro html tipo <form action="/sessions/new"-->
-    <%= form_tag session_path do %>
+    <%= form_tag auth_session_path do %>
       <div class="form-group">
         <%= label_tag :email %>
         <%= text_field_tag :email, nil , class: 'form-control' %>
