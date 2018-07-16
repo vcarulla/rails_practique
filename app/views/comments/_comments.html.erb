@@ -5,6 +5,9 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <%= comment.body %>
+      <div class="author">
+        Commented by: <%= comment.user.email %>
+      </div>
     </div>
   </div>
 <% end %>
