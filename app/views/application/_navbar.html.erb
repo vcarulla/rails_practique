@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="navbar-header">
+          <%= link_to 'Test rails', root_path, class: 'navbar brand' %>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <%= render_user_auth_nav %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
