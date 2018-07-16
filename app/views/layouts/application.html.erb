@@ -12,7 +12,11 @@
   <body>
     <%= render 'navbar' %>
     <div id="main" class="container">
-      <%= yield %>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

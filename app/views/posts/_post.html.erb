@@ -1,13 +1,11 @@
-<div class="post col-md-8 col-md-offset-2">
-  <h2><%= link_to post.ttile, post_path(post) %></h2>
-  <p><%= post.body %></p>
-  <!-- <p><%= link_to "Edit", edit_post_path(post) %></p>
-  <p><%= link_to "Delete", post_path(post), method: :delete %></p> -->
-  <p>Comments(<%= post.comments.count %>)</p>
-  <ul>
-    <p>Tags:</p>
-    <% post.tags.each do |tag| %>
-      <li><%= tag.name %></li>
-    <% end %>
-  </ul>
-</div>
+<h2><%= link_to post.ttile, post_path(post) %></h2>
+<p><%= post.body %></p>
+<!-- <p><%= link_to "Edit", edit_post_path(post) %></p>
+<p><%= link_to "Delete", post_path(post), method: :delete %></p> -->
+<p>Comments(<%= post.comments.count %>)</p>
+<ul>
+  <p>Tags:</p>
+  <% post.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+</ul>
