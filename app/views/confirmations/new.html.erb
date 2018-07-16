@@ -1,0 +1,10 @@
+<h1>Lets confirm your email</h1>
+<%= form_tag confirmation_path do %>
+  <div class="form-group">
+    <%= label_tag :token %>
+    <%= text_field_tag :token, nil, class: 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Verify my Email', class: 'btn btn-default btn-block' %>
+  </div>
+<% end %>

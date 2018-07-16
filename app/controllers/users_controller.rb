@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       # TODO binding.pry va a poner un "breackpoint" en esa linea de ejecucion y mostrarla en consola
       # binding.pry
       # uses @user.errors | @user.errors.any? | @user.errors.messages | @user.errors.full_messages | @users.errors.count
-      render register_path
+      render :new
     end
   end
 
