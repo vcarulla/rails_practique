@@ -4,20 +4,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    if User.where(email: params[:email]).first
-      render :new
-      else
-        @user = User.new(user_params)
-        if @user.save
-          redirect_to root_path
-        else
-          #TODO binding.pry va a poner un "breackpoint" en esa linea de ejecucion y mostrarla en consola
-          # binding.pry
-          # uses @user.errors | @user.errors.any? | @user.errors.messages | @user.errors.full_messages | @users.errors.count
-          render :new
-        end
-      end
+    @user = User.new(user_params)
+    if @user.save
+      UserMailer.register_email(@user).deliver_now
+      redirect_to root_path
+    else
+      # TODO binding.pry va a poner un "breackpoint" en esa linea de ejecucion y mostrarla en consola
+      # binding.pry
+      # uses @user.errors | @user.errors.any? | @user.errors.messages | @user.errors.full_messages | @users.errors.count
+      render register_path
     end
+  end
 
   private
   def user_params
