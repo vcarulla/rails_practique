@@ -1,0 +1,24 @@
+<div class="">
+  <div class="row">
+
+
+    <div class="col-md-8">
+      <h2><%= link_to post.ttile, admin_post_path(post) %></h2>
+      <p><%= post.body %></p>
+
+      <p>Comments(<%= post.comments.count %>)</p>
+      <ul>
+        <p>Tags:</p>
+        <% post.tags.each do |tag| %>
+          <li><%= tag.name %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-3">
+      <%= link_to "Edit", edit_admin_post_path(post), class: 'btn btn-primary' %>
+      <%= link_to "Delete", admin_post_path(post), method: :delete, class: 'btn btn-danger' %>
+    </div>
+
+  </div>
+</div>

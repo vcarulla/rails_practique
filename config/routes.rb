@@ -6,6 +6,13 @@ Rails.application.routes.draw do
     resource  :confirmation, only: [:new]
   end
 
+  namespace :admin do
+    resources :posts
+
+    #TODO al entrar a /admin redirecciona a root to "post#index"
+    root to: "posts#index"
+  end
+
   #TODO User Friendly Url's
   get 'login'     => 'auth/sessions#new'
   delete 'logout' => 'auth/sessions#destroy'

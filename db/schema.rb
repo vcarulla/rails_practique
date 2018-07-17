@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_16_151025) do
+ActiveRecord::Schema.define(version: 2018_07_17_014819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_151025) do
     t.datetime "updated_at", null: false
     t.datetime "confirmed_at"
     t.string "confirmation_token"
+    t.string "role", default: "user"
   end
 
   add_foreign_key "comments", "posts"
