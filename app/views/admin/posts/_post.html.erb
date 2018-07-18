@@ -14,10 +14,11 @@
       </ul>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-4">
+      <button class="btn btn-default" disabled><%= post.status %></button>
       <%= link_to "Edit", edit_admin_post_path(post), class: 'btn btn-primary' %>
       <%= link_to "Delete", admin_post_path(post), method: :delete, class: 'btn btn-danger' %>
-      <%= post.status %>
+
     </div>
 
   </div>

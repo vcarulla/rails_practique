@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :posts
-
-    #TODO al entrar a /admin redirecciona a root to "post#index"
-    root to: "posts#index"
+    resources :posts do
+      get '/statuses/:status', to: 'posts#index', as: :by_status, on: :collection
+    end
+    # TODO, al entrar a /admin redirecciona a root to "post#index"
+    root to: 'posts#index'
   end
 
-  #TODO User Friendly Url's
+  # TODO, User Friendly Url's
   get 'login'     => 'auth/sessions#new'
   delete 'logout' => 'auth/sessions#destroy'
   get 'register'  => 'auth/users#new'
@@ -22,6 +23,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  #TODO defino el root_path
+  # TODO, defino el root_path
   root to: 'posts#index'
 end
