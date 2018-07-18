@@ -5,7 +5,7 @@ module Admin
         view.sanitize(
           Post.statuses.keys.map do |status|
             view.content_tag :li do
-              view.link_to status, view.by_status_admin_post_path(status)
+              view.link_to status, view.by_status_admin_posts_path(status)
             end
           end.join
         )
