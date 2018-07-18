@@ -1,9 +1,6 @@
 <div class="action_bar">
   <div class="col-md-offset-10 col-md-2">
-    <%= form_for [:admin, @post] do |f| %>
-    <%= f.hidden_field :state_event, value: :publish %>
-      <%= f.submit 'Publish', class: 'btn btn-success btn-block' %>
-    <% end %>
+      <%= render "admin/posts/actions/#{@post.status}" %>
   </div>
 </div>
 

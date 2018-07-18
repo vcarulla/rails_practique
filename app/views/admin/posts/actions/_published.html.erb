@@ -1,0 +1,4 @@
+<%= form_for [:admin, @post] do |f| %>
+  <%= f.hidden_field :state_event, value: :unpublish %>
+  <%= f.submit 'Unpublish', class: 'btn btn-warning btn-block' %>
+<% end %>
