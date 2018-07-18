@@ -1,9 +1,13 @@
-<div class="action_bar">
-  <div class="col-md-offset-10 col-md-2">
-      <%= render "admin/posts/actions/#{@post.status}" %>
+<%= content_for :action_bar do %>
+  <div class="action_bar container-fluid">
+    <div class="row">
+      <div class="col-md-offset-10 col-md-2">
+          <%= render "admin/posts/actions/#{@post.status}" %>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>
 
-<div class="actions col-md-8 col-md-offset-2">
+<div class="col-md-8 col-md-offset-2">
   <%= render "form" %>
 </div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails Test</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="admin <%= controller_name %> <%= action_name %>" >
+    <%= render 'navbar' %>
+    <!-- TODO, en edit.html.erb esta el contenido de :action_bar -->
+    <%= yield :action_bar %>
+    <div id="main" class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <%= render 'flash_messages' %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
