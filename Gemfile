@@ -36,6 +36,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 #Pagination
 gem 'kaminari'
+# Active record enum
+gem 'stateful_enum'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

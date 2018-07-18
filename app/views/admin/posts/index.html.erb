@@ -1,4 +1,7 @@
+<%= link_to "New Post", new_admin_post_path %>
 <% @posts.each do |post| %>
   <%= render post %>
 <% end %>
-<%= paginate @posts %>
+<div class="text-center">
+  <%= paginate @posts %>
+</div>
