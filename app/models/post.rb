@@ -11,6 +11,13 @@ class Post < ApplicationRecord
     end
   end
 
+  attr_accessor :state_event
+  after_save :trigger_state, if: :state_event
+
+  private def trigger_state
+    send(state_event) if send(:"can_#{state_event}?")
+  end
+
   #TODO has_many es un macro que se encarga de hacer la magia para que este modelo haga referencia a otros modelos (one to many relasonship)
   has_many :comments
 

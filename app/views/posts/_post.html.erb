@@ -1,6 +1,7 @@
 <div class="">
   <h2><%= link_to post.ttile, post_path(post) %></h2>
   <p><%= post.body %></p>
+  <p><%= time_ago_in_words(post.published_at) %> ago</p>
   <!-- <p><%= link_to "Edit", edit_post_path(post) %></p>
   <p><%= link_to "Delete", post_path(post), method: :delete %></p> -->
   <p>Comments(<%= post.comments.count %>)</p>
