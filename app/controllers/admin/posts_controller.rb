@@ -1,6 +1,6 @@
 class Admin::PostsController < Admin::BaseController
   def index
-    @posts = Post.order('created_at DESC').page(params[:page]).per(10)
+    @posts = scoped_post.order('created_at DESC').page(params[:page]).per(10)
   end
 
   def new
@@ -21,7 +21,7 @@ class Admin::PostsController < Admin::BaseController
     if @post.save
       redirect_to admin_posts_path
     else
-      # render the form again
+      redirect_to admin_posts_path, danger: 'ocurrio un error al crear'
     end
   end
 
@@ -30,7 +30,7 @@ class Admin::PostsController < Admin::BaseController
     if @post.update_attributes(post_params)
       redirect_to admin_posts_path
     else
-      # render the form again
+      redirect_to admin_posts_path, danger: 'Ocurrio un error al actualizar'
     end
   end
 
@@ -39,7 +39,7 @@ class Admin::PostsController < Admin::BaseController
     if @post.destroy
       redirect_to admin_posts_path
     else
-      # render the form again
+      redirect_to admin_posts_path, danger: 'Ocurrio un error al borrar'
     end
   end
 
@@ -51,5 +51,13 @@ class Admin::PostsController < Admin::BaseController
 
   def post_params
     params.require(:post).permit(:state_event, :ttile, :body, :tag_ids => [])
+  end
+
+  def scoped_post
+    if params[:status].present?
+      Post.send(params[:status])
+    else
+      Post.all
+    end
   end
 end
